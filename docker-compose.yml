@@ -1,0 +1,20 @@
+name: dijon-lab
+
+include:
+  - authentik/docker-compose.yml
+  - immich/docker-compose.yml
+
+# Alias so Immich (container) can reach Authentik at your public domain.
+# Set AUTH_DOMAIN in .env (e.g. auth.example.com) or replace below.
+services:
+  server:
+    networks:
+      default:
+        aliases:
+          - ${AUTH_DOMAIN}
+
+# Shared network so all included services can reach each other
+networks:
+  default:
+    name: lab
+    driver: bridge
