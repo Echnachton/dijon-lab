@@ -3,6 +3,7 @@ name: dijon-lab
 include:
   - authentik/docker-compose.yml
   - immich/docker-compose.yml
+  - cloudflared/docker-compose.yml
 
 # Alias so Immich (container) can reach Authentik at your public domain.
 # Set AUTH_DOMAIN in .env (e.g. auth.example.com) or replace below.
