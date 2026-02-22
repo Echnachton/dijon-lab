@@ -1,0 +1,11 @@
+services:
+  traefik:
+    image: traefik:v3.6
+    container_name: traefik-demo
+    ports:
+      - "8880:80"
+      - "8080:8080"
+    volumes:
+      - /run/user/1000/docker.sock:/var/run/docker.sock
+      - ./traefik.yml:/etc/traefik/traefik.yml:ro
+    restart: unless-stopped
